@@ -1,12 +1,5 @@
 version: '2'
 services:
-  micro-app:
-    container_name: nicu-app
-    image: webdevops/php-nginx:7.2
-    ports:
-      - 8000:80
-    volumes:
-      - ./:/app
   db:
     container_name: cipudda_db
     image: mysql:5.7
