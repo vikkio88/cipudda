@@ -1,0 +1,7 @@
+{
+  "app": {
+    "version": 0.1,
+    "port": 8088,
+    "consolelog": true
+  }
+}

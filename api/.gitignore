@@ -1,0 +1,10 @@
+vendor/
+.idea/
+.vscode/
+dist/
+
+.env
+
+coverage/
+clover.xml
+coverage.xml

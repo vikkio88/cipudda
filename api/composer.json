@@ -1,0 +1,28 @@
+{
+    "name": "vikkio88/nicu",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vincenzo Ciaccio",
+            "email": "vincenzo.ciaccio@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts": {
+        "build": [
+            "php scripts/build.php -v"
+        ],
+        "clean-build": [
+            "php scripts/build.php -v -d"
+        ]
+    },
+    "require": {
+        "vikkio88/nicu-framework": "0.0.1",
+        "usmanhalalit/pixie": "2.*@dev"
+    }
+}
