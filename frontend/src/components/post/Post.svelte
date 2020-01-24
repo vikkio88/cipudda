@@ -1,18 +1,16 @@
 <script>
-  export let post = {};
   import marked from "marked";
-  export let slug = "";
+  import { READ_MORE_PLACEHOLDER } from "../../config";
   export let title = "";
   export let body = "";
   export let publishedDate = "";
-  export let tags = [];
 
-  body = body.replace("%STOP%", "");
+  body = body.replace(READ_MORE_PLACEHOLDER, "");
 </script>
 
 <style>
   .single-post {
-      min-height: 60vh;
+    min-height: 60vh;
   }
   .single-post p {
     padding: 0px;

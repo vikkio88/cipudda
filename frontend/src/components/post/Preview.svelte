@@ -1,6 +1,7 @@
 <script>
   import { link } from "svelte-spa-router";
   import marked from "marked";
+  import { READ_MORE_PLACEHOLDER } from "../../config";
   export let slug = "";
   export let title = "";
   export let body = "";
@@ -10,7 +11,7 @@
   let truncatedBody = "";
 
   $: {
-    const stop = body.indexOf("%STOP%");
+    const stop = body.indexOf(READ_MORE_PLACEHOLDER);
     const index = stop > -1 ? stop : body.length;
     truncatedBody = body.substr(0, index);
   }
