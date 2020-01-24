@@ -1,13 +1,12 @@
 <?php
 
+use App\Middlewares\AuthGuard;
 use Nicu\{
     Handlers\NotAllowedHandler,
     Handlers\NotFoundHandler,
     Handlers\FallbackResponder
 };
 
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
 use Tuupola\Middleware\Cors;
 
 return [
@@ -31,12 +30,13 @@ return [
                 "origin" => ["*"],
                 "methods" => ["GET", "POST", "PUT", "PATCH", "DELETE"],
             ],
-            function (RequestInterface $request, ResponseInterface $response, callable $next) {
-                // do something
-                $response = $next($request, $response);
-                return $response;
-            }
+            AuthGuard::class => [
+                'header' => 'authorization',
+                'routes' => [
+                    'POST' => ['/^\/posts/'],
+                ],
+                'key' => getenv('KEY')
+            ]
         ]
-    ],
-    'stuff' => getenv('SOME_STUFF')
+    ]
 ];

@@ -41,4 +41,9 @@ class PostRepository
         }
         return Post::fromStdClass($posts[0]);
     }
+
+    public function create(array $postBody)
+    {
+        $this->database->insert($postBody);
+    }
 }

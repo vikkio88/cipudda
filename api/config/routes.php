@@ -1,7 +1,7 @@
 <?php
 
 use Nicu\Actions\Misc\Ping;
-use App\Actions\Posts\{GetPosts, GetPost};
+use App\Actions\Posts\{CreatePost, GetPosts, GetPost};
 
 return [
     'routes' => [
@@ -19,6 +19,11 @@ return [
             'route' => '/post/{slug}',
             'method' => 'get',
             'action' => GetPost::class
+        ],
+        [
+            'route' => '/posts',
+            'method' => 'post',
+            'action' => CreatePost::class
         ]
     ]
 ];
