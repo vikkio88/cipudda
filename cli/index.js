@@ -1,6 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
-const { API_URL } = process.env;
+const { API_URL, FE_URL } = process.env;
 const argv = require('minimist')(process.argv.slice(2));
 const fs = require('fs');
 const generateId = () => Math.random().toString(36).substr(2, 5);
@@ -34,6 +34,7 @@ axios
     .post(`${API_URL}/posts`, { slug, title, body }, { headers: { authorization: key } })
     .then(data => {
         console.log('success');
+        console.log(`Post available here: ${FE_URL}/#/post/${slug}`);
     }).catch(({ response }) => {
         console.error('failed status code: ', response.status);
     });
