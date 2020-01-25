@@ -44,6 +44,6 @@ class PostRepository
 
     public function create(array $postBody)
     {
-        $this->database->insert($postBody);
+        return $this->table->insert($postBody);
     }
 }
