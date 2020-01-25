@@ -25,7 +25,7 @@ class PostRepository
     public function getAll(): array
     {
         /** @var array $posts */
-        $posts = $this->table->get();
+        $posts = $this->table->orderBy('publishedDate', 'DESC')->get();
         if (!count($posts)) {
             return [];
         }
