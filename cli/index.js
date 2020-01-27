@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { Input, List, BooleanPrompt } = require('enquirer');
 const argv = require('minimist')(process.argv.slice(2));
-const { loadConfig, loadPost, createPost } = require('./utils');
+const { loadConfig, loadPost, createPost, logError, logSuccess, log } = require('./utils');
 const { API_URL, FE_URL, key } = loadConfig();
 
 const { f, file } = argv;
@@ -9,12 +9,12 @@ const { f, file } = argv;
 const filePath = f || file;
 
 if (!(typeof filePath === 'string')) {
-    console.log('No file specified -f');
+    logError('No file specified -f');
     process.exit(-1);
 }
 
 if (!fs.existsSync(filePath)) {
-    console.log(`Post file "${filePath}"" does not exist.`);
+    logError(`Post file "${filePath}"" does not exist.`);
     process.exit(-1);
 }
 
@@ -38,7 +38,16 @@ const main = async () => {
     }
 
     const { body, slug } = loadPost(filePath, title);
-    createPost({ slug, title, body }, { API_URL, FE_URL, key });
+    try {
+        await createPost({ slug, title, body }, { API_URL, key });
+        logSuccess('success');
+        log(`Post available here: ${FE_URL}/#/post/${slug}`);
+    } catch ({ response }) {
+        logError('failed');
+        log('status code: ', response.status);
+        logError(response.status);
+        console.log();
+    }
 }
 
 

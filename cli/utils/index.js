@@ -2,14 +2,25 @@ const axios = require('axios');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
+const chalk = require('chalk');
+
+const logError = message => {
+    console.log(chalk.red(chalk.bold(message)));
+};
+
+const logSuccess = message => {
+    console.log(chalk.green(chalk.bold(message)));
+};
+
+const log = message => console.log(chalk.bold(message));
 
 const CONFIG_FILE = './.cipudda-cli.json';
 const loadConfig = () => {
     const home = os.homedir();
     const configPath = path.resolve(home, CONFIG_FILE);
     if (!fs.existsSync(configPath)) {
-        console.log(`config file: ${configPath} does not exist`);
-        console.log(`please create it`);
+        logError(`config file: ${configPath} does not exist`);
+        logError(`please create it`);
         process.exit(-1);
     }
     const body = fs.readFileSync(configPath).toString();
@@ -23,19 +34,16 @@ const loadPost = (filePath, title) => {
     const slug = `${title.toLocaleLowerCase().replace(/\s/g, '-')}-${generateId()}`;
     return { body, slug };
 }
-const createPost = ({ slug, title, body }, { API_URL, FE_URL, key }) => {
-    console.log('sending post');
-    axios.post(`${API_URL}/posts`, { slug, title, body }, { headers: { authorization: key } })
-        .then(() => {
-            console.log('success');
-            console.log(`Post available here: ${FE_URL}/#/post/${slug}`);
-        }).catch(({ response }) => {
-            console.error('failed status code: ', response.status);
-        });
+const createPost = async ({ slug, title, body }, { API_URL, key }) => {
+    log('sending post');
+    return axios.post(`${API_URL}/posts`, { slug, title, body }, { headers: { authorization: key } })
 }
 
 module.exports = {
     loadConfig,
     loadPost,
-    createPost
+    createPost,
+    logSuccess,
+    logError,
+    log
 };
