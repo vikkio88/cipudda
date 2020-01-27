@@ -1,40 +1,45 @@
-require('dotenv').config();
-const axios = require('axios');
-const { API_URL, FE_URL } = process.env;
-const argv = require('minimist')(process.argv.slice(2));
 const fs = require('fs');
-const generateId = () => Math.random().toString(36).substr(2, 5);
+const { Input, List, BooleanPrompt } = require('enquirer');
+const argv = require('minimist')(process.argv.slice(2));
+const { loadConfig, loadPost, createPost } = require('./utils');
+const { API_URL, FE_URL, key } = loadConfig();
 
-const { title, f, key } = argv;
-if (!(typeof title === 'string')) {
-    console.log('No title specified --title');
-    process.exit(-1);
-}
+const { f, file } = argv;
 
-if (!(typeof f === 'string')) {
+const filePath = f || file;
+
+if (!(typeof filePath === 'string')) {
     console.log('No file specified -f');
     process.exit(-1);
 }
 
-if (!(typeof key === 'string')) {
-    console.log('No key specified --key');
+if (!fs.existsSync(filePath)) {
+    console.log(`Post file "${filePath}"" does not exist.`);
     process.exit(-1);
 }
 
-if (!fs.existsSync(f)) {
-    console.log(`File ${f} does not exist`);
-    process.exit(-1);
-}
-
-
-const body = fs.readFileSync(f).toString();
-const slug = `${title.toLocaleLowerCase().replace(/\s/g, '-')}-${generateId()}`;
-console.log('sending post');
-axios
-    .post(`${API_URL}/posts`, { slug, title, body }, { headers: { authorization: key } })
-    .then(data => {
-        console.log('success');
-        console.log(`Post available here: ${FE_URL}/#/post/${slug}`);
-    }).catch(({ response }) => {
-        console.error('failed status code: ', response.status);
+const main = async () => {
+    let prompt = new Input({
+        message: 'Insert post title',
+        initial: 'Some Interesting Title'
     });
+    const title = await prompt.run();
+
+    let tags = null;
+    prompt = new BooleanPrompt({ message: "Do you want to add any tag?" });
+    const addTags = await prompt.run();
+    if (addTags) {
+        prompt = new List({
+            name: 'keywords',
+            message: 'Type comma-separated keywords'
+        });
+
+        tags = await prompt.run();
+    }
+
+    const { body, slug } = loadPost(filePath, title);
+    createPost({ slug, title, body }, { API_URL, FE_URL, key });
+}
+
+
+main();

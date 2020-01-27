@@ -1,0 +1,5 @@
+{
+    "API_URL": "http://localhost:8088/",
+    "FE_URL": "http://localhost:5000/",
+    "key": "some-key"
+}
