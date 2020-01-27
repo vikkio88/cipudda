@@ -25,6 +25,11 @@ h3.subtitle {
 	font-family: "Press Start 2P";
 }
 
+strong {
+	font-weight:bold;
+	background-color: rgb(25, 25, 25);
+}
+
 .nes-container {
 	margin-bottom: 20px;
 }
@@ -41,6 +46,10 @@ h1:hover {
 	-webkit-animation: neon2 1.5s ease-in-out infinite alternate;
 	-moz-animation: neon2 1.5s ease-in-out infinite alternate;
 	animation: neon2 1.5s ease-in-out infinite alternate;
+}
+
+main {
+	min-height: 60vh;
 }
 
 
@@ -71,6 +80,11 @@ footer {
 	to {
 		text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #00ff00, 0 0 35px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00, 0 0 75px #00ff00;
 	}
+}
+
+div.no-result {
+    margin-top: 100px;
+    font-size: bigger;
 }
 
 p.post-body{
