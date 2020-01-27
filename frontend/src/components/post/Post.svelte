@@ -37,7 +37,7 @@
   <section class="nes-container with-title">
     <h2 class="title blackbg">Tags</h2>
     {#each formattedTags as tag}
-      <a href={`/posts/tags/${tag}`} use:link class="tag">#{tag}</a>
+      <a href={`/posts/tag/${tag}`} use:link class="tag">#{tag}</a>
     {/each}
   </section>
 {/if}

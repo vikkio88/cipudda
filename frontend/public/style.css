@@ -84,7 +84,11 @@ footer {
 
 div.no-result {
     margin-top: 100px;
-    font-size: bigger;
+	font-size: bigger;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 p.post-body{
