@@ -1,1 +1,0 @@
-export const READ_MORE_PLACEHOLDER = '%STOP%';
