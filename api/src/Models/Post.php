@@ -9,6 +9,8 @@ use stdClass;
 
 class Post implements ModelInterface
 {
+    const READ_MORE_PLACEHOLDER = '§§§';
+    const FALLBACK_TRIM = 500;
     public $slug;
     public $title;
     public $body;
@@ -16,7 +18,7 @@ class Post implements ModelInterface
     /** @var DateTime */
     public $publishedDate;
 
-    public function __construct(string $slug, string $title, string $body, DateTime $publishedDate, ?array $tags = [])
+    public function __construct(string $slug, string $title, string $body, DateTime $publishedDate, ?string $tags = null)
     {
         $this->slug = $slug;
         $this->title = $title;
@@ -25,12 +27,14 @@ class Post implements ModelInterface
         $this->publishedDate = $publishedDate;
     }
 
-    public static function fromStdClass(stdClass $row)
+    public static function fromStdClass(stdClass $row, bool $trim = false)
     {
+        $body = $trim ? self::trim($row->body) : self::clearBody($row->body);
+
         return new self(
             $row->slug,
             $row->title,
-            $row->body,
+            $body,
             new DateTime($row->publishedDate),
             $row->tags
         );
@@ -40,7 +44,7 @@ class Post implements ModelInterface
     {
         $posts = [];
         foreach ($rows as $row) {
-            $post = self::fromStdClass($row);
+            $post = self::fromStdClass($row, true);
             $posts[] = $post->toArray();
         }
 
@@ -56,5 +60,19 @@ class Post implements ModelInterface
             'publishedDate' => $this->publishedDate->format('Y-m-d H:i:s'),
             'tags' => $this->tags,
         ];
+    }
+
+    private static function trim(string $body)
+    {
+        if (strpos($body, self::READ_MORE_PLACEHOLDER)) {
+            return substr($body, 0, strpos($body, self::READ_MORE_PLACEHOLDER));
+        }
+
+        return substr($body, 0, self::FALLBACK_TRIM) . '...';
+    }
+
+    private static function clearBody(string $body)
+    {
+        return str_replace(self::READ_MORE_PLACEHOLDER, '', $body);
     }
 }
