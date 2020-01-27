@@ -19,6 +19,7 @@ class PostRepository
     public function __construct(QueryBuilderHandler $database)
     {
         $this->database = $database;
+        /** @noinspection PhpParamsInspection */
         $this->table = $database->table('posts');
     }
 
@@ -45,5 +46,12 @@ class PostRepository
     public function create(array $postBody)
     {
         return $this->table->insert($postBody);
+    }
+
+    public function getByTag($tag)
+    {
+        /** @var array $posts */
+        $posts = $this->table->where('tags', 'LIKE', "%$tag%")->get();
+        return Post::fromArray($posts);
     }
 }
