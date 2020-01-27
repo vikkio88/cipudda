@@ -6,7 +6,8 @@ namespace App\Actions\Posts;
 
 use App\Repositories\PostRepository;
 use Nicu\Actions\ApiAction;
-use Nicu\Exceptions\NotFound;
+use Nicu\Exceptions\ValidationError;
+use Throwable;
 
 class CreatePost extends ApiAction
 {
@@ -20,7 +21,11 @@ class CreatePost extends ApiAction
 
     protected function action(): array
     {
-        $this->postRepo->create($this->getRequestBody());
+        try {
+            $this->postRepo->create($this->getRequestBody());
+        } catch (Throwable $exception) {
+            throw new ValidationError();
+        }
         return ['status' => 'ok'];
     }
 }

@@ -34,9 +34,9 @@ const loadPost = (filePath, title) => {
     const slug = `${title.toLocaleLowerCase().replace(/\s/g, '-')}-${generateId()}`;
     return { body, slug };
 }
-const createPost = async ({ slug, title, body }, { API_URL, key }) => {
+const createPost = async ({ slug, title, body, tags }, { API_URL, key }) => {
     log('sending post');
-    return axios.post(`${API_URL}/posts`, { slug, title, body }, { headers: { authorization: key } })
+    return axios.post(`${API_URL}/posts`, { slug, title, body, tags: tags.join(', ') }, { headers: { authorization: key } })
 }
 
 module.exports = {

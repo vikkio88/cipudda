@@ -39,7 +39,7 @@ const main = async () => {
 
     const { body, slug } = loadPost(filePath, title);
     try {
-        await createPost({ slug, title, body }, { API_URL, key });
+        await createPost({ slug, title, body, tags }, { API_URL, key });
         logSuccess('success');
         log(`Post available here: ${FE_URL}/#/post/${slug}`);
     } catch ({ response }) {
