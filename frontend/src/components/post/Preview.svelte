@@ -1,20 +1,11 @@
 <script>
   import { link } from "svelte-spa-router";
   import marked from "marked";
-  import { READ_MORE_PLACEHOLDER } from "../../config";
   export let slug = "";
   export let title = "";
   export let body = "";
   export let publishedDate = "";
   export let tags = [];
-
-  let truncatedBody = "";
-
-  $: {
-    const stop = body.indexOf(READ_MORE_PLACEHOLDER);
-    const index = stop > -1 ? stop : body.length;
-    truncatedBody = body.substr(0, index);
-  }
 </script>
 
 <style>
@@ -33,7 +24,7 @@
   <h2 class="title blackbg">{title}</h2>
   <h3 class="subtitle">{publishedDate}</h3>
   <p class="post-body">
-    {@html marked(truncatedBody)}
+    {@html marked(body)}
   </p>
 
   <a href={`/post/${slug}`} use:link>read more...</a>

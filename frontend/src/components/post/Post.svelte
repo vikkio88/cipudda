@@ -1,19 +1,27 @@
 <script>
+  import { link } from "svelte-spa-router";
   import marked from "marked";
-  import { READ_MORE_PLACEHOLDER } from "../../config";
   export let title = "";
   export let body = "";
   export let publishedDate = "";
-
-  body = body.replace(READ_MORE_PLACEHOLDER, "");
+  export let tags = "";
+  $: formattedTags = tags ? tags.split(",").map(t => t.trim()) : [];
 </script>
 
 <style>
   .single-post {
     min-height: 60vh;
   }
+  p.post-body {
+    width: 95vw;
+  }
+
   .single-post p {
     padding: 0px;
+  }
+  a.tag {
+    margin-left: 5px;
+    margin-right: 5px;
   }
 </style>
 
@@ -24,3 +32,12 @@
     {@html marked(body)}
   </p>
 </section>
+
+{#if tags}
+  <section class="nes-container with-title">
+    <h2 class="title blackbg">Tags</h2>
+    {#each formattedTags as tag}
+      <a href={`/posts/tags?tag=${tag}`} use:link class="tag">#{tag}</a>
+    {/each}
+  </section>
+{/if}
