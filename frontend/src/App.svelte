@@ -5,13 +5,19 @@
   import Footer from "./components/pages/Footer.svelte";
   import Home from "./pages/Home.svelte";
   import Post from "./pages/Post.svelte";
+  import TagSearch from "./pages/TagSearch.svelte";
+  import NotFound from "./pages/NotFound.svelte";
+
   const routes = {
     "/": Home,
     "/post/:slug": Post,
-    "*": Home
+    "/posts/tag/:tag": TagSearch,
+    "*": NotFound
   };
 </script>
 
 <Header />
-<Router {routes} />
+<main>
+  <Router {routes} />
+</main>
 <Footer />
