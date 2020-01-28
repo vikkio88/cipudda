@@ -33,7 +33,8 @@ return [
             AuthGuard::class => [
                 'header' => 'authorization',
                 'routes' => [
-                    'POST' => ['/^\/posts/'],
+                    'POST' => ['/^\/admin\/.+/'],
+                    'GET' => ['/^\/admin\/.+/'],
                 ],
                 'key' => getenv('KEY')
             ]

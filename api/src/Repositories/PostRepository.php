@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Models\Post;
+use App\Models\PostListItem;
 use Nicu\Exceptions\NotFound;
 use Pixie\QueryBuilder\QueryBuilderHandler;
 
@@ -53,5 +54,12 @@ class PostRepository
         /** @var array $posts */
         $posts = $this->table->where('tags', 'LIKE', "%$tag%")->get();
         return Post::fromArray($posts);
+    }
+
+    public function getAllTitle(): array
+    {
+        /** @var array $posts */
+        $posts = $this->table->select('slug', 'title', 'publishedDate')->orderBy('publishedDate', 'DESC')->get();
+        return PostListItem::fromArray($posts);
     }
 }

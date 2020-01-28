@@ -1,7 +1,8 @@
 <?php
 
+use App\Actions\Admin\{CreatePost, GetPosts as AdminGetPosts};
 use Nicu\Actions\Misc\Ping;
-use App\Actions\Posts\{CreatePost, GetPosts, GetPost, GetTaggedPosts};
+use App\Actions\Posts\{GetPosts, GetPost, GetTaggedPosts};
 
 return [
     'routes' => [
@@ -25,10 +26,17 @@ return [
             'method' => 'get',
             'action' => GetPost::class
         ],
+
+        // admin
         [
-            'route' => '/posts',
+            'route' => '/admin/posts',
             'method' => 'post',
             'action' => CreatePost::class
+        ],
+        [
+            'route' => '/admin/posts',
+            'method' => 'get',
+            'action' => AdminGetPosts::class
         ]
     ]
 ];

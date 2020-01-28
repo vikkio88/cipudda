@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Actions\Posts;
+namespace App\Actions\Admin;
 
 
 use App\Repositories\PostRepository;
