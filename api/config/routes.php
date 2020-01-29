@@ -1,6 +1,6 @@
 <?php
 
-use App\Actions\Admin\{CreatePost, GetPosts as AdminGetPosts};
+use App\Actions\Admin\{CreatePost, GetPosts as AdminGetPosts, DeletePost, UpdatePost};
 use Nicu\Actions\Misc\Ping;
 use App\Actions\Posts\{GetPosts, GetPost, GetTaggedPosts};
 
@@ -37,6 +37,16 @@ return [
             'route' => '/admin/posts',
             'method' => 'get',
             'action' => AdminGetPosts::class
+        ],
+        [
+            'route' => '/admin/post/{slug}',
+            'method' => 'delete',
+            'action' => DeletePost::class
+        ],
+        [
+            'route' => '/admin/post/{slug}',
+            'method' => 'put',
+            'action' => UpdatePost::class
         ]
     ]
 ];

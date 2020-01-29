@@ -49,6 +49,15 @@ class PostRepository
         return $this->table->insert($postBody);
     }
 
+    public function update(string $slug, array $postBody)
+    {
+        if ($postBody['slug'] === $slug) {
+            unset($postBody['slug']);
+        }
+
+        return $this->table->where('slug', $slug)->update($postBody);
+    }
+
     public function getByTag($tag)
     {
         /** @var array $posts */
@@ -61,5 +70,10 @@ class PostRepository
         /** @var array $posts */
         $posts = $this->table->select('slug', 'title', 'publishedDate')->orderBy('publishedDate', 'DESC')->get();
         return PostListItem::fromArray($posts);
+    }
+
+    public function delete(string $slug)
+    {
+        $this->table->where('slug', $slug)->delete();
     }
 }

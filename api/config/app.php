@@ -35,6 +35,7 @@ return [
                 'routes' => [
                     'POST' => ['/^\/admin\/.+/'],
                     'GET' => ['/^\/admin\/.+/'],
+                    'PUT' => ['/^\/admin\/.+/'],
                 ],
                 'key' => getenv('KEY')
             ]
