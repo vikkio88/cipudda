@@ -1,10 +1,10 @@
 const fs = require('fs');
 const { Input, List, BooleanPrompt } = require('enquirer');
-const { loadPost, createPost, logError, logSuccess, log } = require('./');
+const { loadPost, createPost, logError, logSuccess, log, handleApiError } = require('./');
 
 const postCreation = async ({ API_URL, key, filePath, FE_URL }) => {
     if (!fs.existsSync(filePath)) {
-        logError(`Post file "${filePath}"" does not exist.`);
+        logError(`Post file "${filePath}" does not exist.`);
         process.exit(-1);
     }
 
@@ -28,14 +28,11 @@ const postCreation = async ({ API_URL, key, filePath, FE_URL }) => {
 
     const { body, slug } = loadPost(filePath, title);
     try {
-        await createPost({ slug, title, body, tags }, { API_URL, key });
-        logSuccess('success');
+        await createPost({ slug, title, body, tags, API_URL, key });
+        logSuccess('Post created successfully');
         log(`Post available here: ${FE_URL}/#/post/${slug}`);
-    } catch ({ response }) {
-        logError('failed');
-        log('status code: ', response.status);
-        logError(response.status);
-        console.log();
+    } catch (error) {
+        handleApiError(error, `posting ${slug} failed`);
     }
 };
 
