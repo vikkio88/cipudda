@@ -10,15 +10,26 @@
 
 <style>
   .single-post {
-    min-height: 60vh;
-  }
-  p.post-body {
-    width: 95vw;
+    width: 85vw;
   }
 
-  .single-post p {
-    padding: 0px;
+  @media screen and (max-width: 650px) {
+    .single-post {
+      width: 98vw;
+    }
+    .tags {
+      width: 98vw;
+      display: flex;
+    }
+    .tags p {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
+
   a.tag {
     margin-left: 5px;
     margin-right: 5px;
@@ -34,10 +45,12 @@
 </section>
 
 {#if tags}
-  <section class="nes-container with-title">
+  <section class="nes-container with-title tags">
     <h2 class="title blackbg">Tags</h2>
-    {#each formattedTags as tag}
-      <a href={`/posts/tag/${tag}`} use:link class="tag">#{tag}</a>
-    {/each}
+    <p>
+      {#each formattedTags as tag}
+        <a href={`/posts/tag/${tag}`} use:link class="tag">#{tag}</a>
+      {/each}
+    </p>
   </section>
 {/if}
