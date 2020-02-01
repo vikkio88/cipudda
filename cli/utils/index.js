@@ -15,8 +15,8 @@ const logSuccess = message => {
 
 const log = message => console.log(chalk.bold(message));
 
-const CONFIG_FILE = './.cipudda-cli.json';
-const loadConfig = () => {
+const loadConfig = (devMode = false) => {
+    const CONFIG_FILE = `./.cipudda-cli${devMode ? '-dev' : ''}.json`;
     const home = os.homedir();
     const configPath = path.resolve(home, CONFIG_FILE);
     if (!fs.existsSync(configPath)) {

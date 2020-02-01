@@ -4,7 +4,6 @@ const postDelete = require('./utils/postDelete');
 const postSave = require('./utils/postSave');
 const postEdit = require('./utils/postEdit');
 const { loadConfig, logError, log } = require('./utils');
-const { API_URL, FE_URL, key } = loadConfig();
 
 const MODES = {
     CREATE: 'createMode',
@@ -19,8 +18,7 @@ const actions = {
     [MODES.DELETE]: postDelete,
     [MODES.SAVE]: postSave
 };
-
-const { e, c, d, f, s } = argv;
+const { e, c, d, f, s, dev } = argv;
 
 const switches = {
     [MODES.CREATE]: c,
@@ -29,6 +27,8 @@ const switches = {
     [MODES.SAVE]: s
 };
 const filePath = f;
+
+const { API_URL, FE_URL, key } = loadConfig(dev);
 
 const main = async () => {
     const filteredSwitches = Object.keys(switches).filter(mode => {
