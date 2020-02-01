@@ -5,6 +5,7 @@
     by
     <a href="//vikkio.me">vikkio</a>
     <span>-</span>
+    <a href="https://github.com/vikkio88/cipudda" target="_blank">Source</a>.
     frontend built with
     <a href="https://svelte.dev/" target="_blank">Svelte</a>
     <span>-</span>
