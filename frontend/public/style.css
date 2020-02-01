@@ -104,6 +104,10 @@ p.post-body{
 	font-family: "Comfortaa";
 }
 
+p.post-body img {
+	max-width: 100%;
+}
+
 p.post-body code {
 	font-family: "Source Code Pro";
 	background-color: rgb(54, 53, 52);
