@@ -65,7 +65,7 @@ class Post implements ModelInterface
     private static function trim(string $body)
     {
         if (strpos($body, self::READ_MORE_PLACEHOLDER)) {
-            return substr($body, 0, strpos($body, self::READ_MORE_PLACEHOLDER));
+            return substr($body, 0, strpos($body, self::READ_MORE_PLACEHOLDER)) . '...';
         }
 
         return substr($body, 0, self::FALLBACK_TRIM) . '...';
