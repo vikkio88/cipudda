@@ -1,10 +1,19 @@
 version: '2'
 services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cipudda_api
+    ports:
+      - "8088:80"
+    volumes:
+      - "./:/app"
   db:
     container_name: cipudda_db
     image: mysql:5.7
     ports:
-      - "3306:3306"
+      - "33060:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: cipudda
