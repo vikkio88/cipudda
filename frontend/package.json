@@ -18,7 +18,7 @@
     "svelte": "^3.29.7"
   },
   "dependencies": {
-    "marked": "^0.8.2",
+    "cipudda-libs": "file:../libs",
     "sirv-cli": "^0.4.6",
     "svelte-spa-router": "^2.2.0"
   }

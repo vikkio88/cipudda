@@ -1,6 +1,6 @@
 <script>
   import { link } from "svelte-spa-router";
-  import { marked } from "../../libs";
+  import { marked } from "cipudda-libs";
   export let slug = "";
   export let title = "";
   export let body = "";

@@ -7,4 +7,5 @@ renderer.link = (href, title, text) => {
 };
 
 marked.setOptions({ renderer });
+
 export { marked };
