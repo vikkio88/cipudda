@@ -1,12 +1,14 @@
 <script>
+	import Router from "svelte-spa-router";
+
+	import Main from "./components/pages/Main.svelte";
+
+	const routes = {
+		"/": Main,
+	};
+
 	const api = process.env.API_URL;
 </script>
-
-<main>
-	<h1>Cipudda Admin panel</h1>
-	<h2>website on: {api}</h2>
-	
-</main>
 
 <style>
 	main {
@@ -33,4 +35,21 @@
 			max-width: none;
 		}
 	}
+
+	.admin-body {
+		display: flex;
+		width: 100%;
+		min-height: 90vh;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
 </style>
+
+<main>
+	<h1>Cipudda Admin panel</h1>
+	<h2>website on: {api}</h2>
+	<div class="admin-body">
+		<Router {routes} />
+	</div>
+</main>
