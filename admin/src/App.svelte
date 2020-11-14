@@ -2,9 +2,13 @@
 	import Router from "svelte-spa-router";
 
 	import Main from "./components/pages/Main.svelte";
+	import Posts from "./components/pages/Posts.svelte";
+	import Create from "./components/pages/Create.svelte";
 
 	const routes = {
 		"/": Main,
+		"/posts": Posts,
+		"/create": Create,
 	};
 
 	const api = process.env.API_URL;
@@ -40,9 +44,6 @@
 		display: flex;
 		width: 100%;
 		min-height: 90vh;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
 	}
 </style>
 
