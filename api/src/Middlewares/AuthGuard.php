@@ -4,54 +4,36 @@
 namespace App\Middlewares;
 
 
-use Nicu\Constants\HttpStatusCodes;
+use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+use Slim\Psr7\Factory\ResponseFactory;
 
 class AuthGuard
 {
-    private $routes;
     private $key;
     private $header;
 
     public function __construct($options)
     {
         $this->header = $options['header'];
-        $this->routes = $options['routes'];
         $this->key = $options['key'];
     }
 
-    public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next)
+    public function __invoke(ServerRequestInterface $request, RequestHandlerInterface $handler)
     {
-        $method = $request->getMethod();
-        $uri = parse_url($request->getUri(), PHP_URL_PATH);
-        if ($this->requiresAuth($method, $uri) && !$this->isAuthenticated($request)) {
-            return $response
-                ->withStatus(HttpStatusCodes::UNAUTHORIZED)
+        if (!$this->isAuthenticated($request)) {
+            $responseFactory = new ResponseFactory();
+            return $responseFactory->createResponse(StatusCodeInterface::STATUS_UNAUTHORIZED)
                 ->withHeader('Content-Type', 'application/json');
         }
-        return $next($request, $response);
+        return $handler->handle($request);
     }
 
-    private function requiresAuth(string $method, string $uri)
-    {
-        if (!array_key_exists($method, $this->routes)) {
-            return false;
-        }
-
-        foreach ($this->routes[$method] as $pattern) {
-            if (preg_match($pattern, $uri)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
 
     private function isAuthenticated(RequestInterface $request)
     {
-        file_put_contents('log.txt', json_encode($request->getHeaders()) . PHP_EOL, FILE_APPEND);
-        file_put_contents('log.txt', $this->key . "  :  " . $this->header . "  : " . json_encode($request->getHeader($this->header)) . PHP_EOL, FILE_APPEND);
         return ($this->key === $request->getHeaderLine($this->header));
     }
 

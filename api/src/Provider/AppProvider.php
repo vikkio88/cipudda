@@ -3,6 +3,7 @@
 
 namespace App\Provider;
 
+use App\Middlewares\AuthGuard;
 use Noodlehaus\Config;
 use Pixie\Connection;
 use Pixie\QueryBuilder\QueryBuilderHandler;
@@ -46,6 +47,14 @@ class AppProvider
                 'password' => $password
             ]);
             return new QueryBuilderHandler($connection);
+        });
+
+        $this->bind(AuthGuard::class, function (ContainerInterface $container) {
+            $config = $container->get(Config::class);
+            return new AuthGuard([
+                'header' => 'x-api-key',
+                'key' => $config->get('app.apiKey')
+            ]);
         });
     }
 }

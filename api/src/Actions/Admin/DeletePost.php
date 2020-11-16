@@ -4,9 +4,9 @@
 namespace App\Actions\Admin;
 
 
+use App\Actions\ApiAction;
+use App\Exceptions\NotFound;
 use App\Repositories\PostRepository;
-use Nicu\Actions\ApiAction;
-use Nicu\Exceptions\NotFound;
 
 class DeletePost extends ApiAction
 {
