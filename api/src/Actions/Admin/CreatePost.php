@@ -4,9 +4,9 @@
 namespace App\Actions\Admin;
 
 
+use App\Actions\ApiAction;
+use App\Exceptions\ValidationError;
 use App\Repositories\PostRepository;
-use Nicu\Actions\ApiAction;
-use Nicu\Exceptions\ValidationError;
 use Throwable;
 
 class CreatePost extends ApiAction

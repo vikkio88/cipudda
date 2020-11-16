@@ -22,7 +22,11 @@
         ]
     },
     "require": {
-        "vikkio88/nicu-framework": "0.0.1",
-        "usmanhalalit/pixie": "2.*@dev"
+        "usmanhalalit/pixie": "2.*@dev",
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.2",
+        "php-di/slim-bridge": "^3.0",
+        "hassankhan/config": "^2.1",
+        "symfony/dotenv": "^5.1"
     }
 }

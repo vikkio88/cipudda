@@ -4,32 +4,89 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9819e89d82ad9be557514ec831ec0cd8",
+    "content-hash": "f5f44cf495220941614d46773bb53ee1",
     "packages": [
         {
-            "name": "hassankhan/config",
-            "version": "0.11.2",
+            "name": "fig/http-message-util",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/hassankhan/config.git",
-                "reference": "7fbc236c32dc6cc53a7b00992a2739cf8b41c085"
+                "url": "https://github.com/php-fig/http-message-util.git",
+                "reference": "3242caa9da7221a304b8f84eb9eaddae0a7cf422"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hassankhan/config/zipball/7fbc236c32dc6cc53a7b00992a2739cf8b41c085",
-                "reference": "7fbc236c32dc6cc53a7b00992a2739cf8b41c085",
+                "url": "https://api.github.com/repos/php-fig/http-message-util/zipball/3242caa9da7221a304b8f84eb9eaddae0a7cf422",
+                "reference": "3242caa9da7221a304b8f84eb9eaddae0a7cf422",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0",
-                "scrutinizer/ocular": "~1.1",
-                "squizlabs/php_codesniffer": "~2.2"
+                "php": "^5.3 || ^7.0"
             },
             "suggest": {
-                "symfony/yaml": "~2.5"
+                "psr/http-message": "The package containing the PSR-7 interfaces"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fig\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Utility classes and constants for use with PSR-7 (psr/http-message)",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/http-message-util/issues",
+                "source": "https://github.com/php-fig/http-message-util/tree/1.1.4"
+            },
+            "time": "2020-02-05T20:36:27+00:00"
+        },
+        {
+            "name": "hassankhan/config",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hassankhan/config.git",
+                "reference": "16fa4d3320ac9bb611dda0c8ea980edb58d227c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hassankhan/config/zipball/16fa4d3320ac9bb611dda0c8ea980edb58d227c9",
+                "reference": "16fa4d3320ac9bb611dda0c8ea980edb58d227c9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8 || ~5.7 || ~6.5 || ~7.5",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.2",
+                "symfony/yaml": "~3.4"
+            },
+            "suggest": {
+                "symfony/yaml": "~3.4"
             },
             "type": "library",
             "autoload": {
@@ -61,120 +118,11 @@
                 "yaml",
                 "yml"
             ],
-            "time": "2017-11-07T22:49:43+00:00"
-        },
-        {
-            "name": "jeremeamia/SuperClosure",
-            "version": "2.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jeremeamia/super_closure.git",
-                "reference": "5707d5821b30b9a07acfb4d76949784aaa0e9ce9"
+            "support": {
+                "issues": "https://github.com/hassankhan/config/issues",
+                "source": "https://github.com/hassankhan/config/tree/develop"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/5707d5821b30b9a07acfb4d76949784aaa0e9ce9",
-                "reference": "5707d5821b30b9a07acfb4d76949784aaa0e9ce9",
-                "shasum": ""
-            },
-            "require": {
-                "nikic/php-parser": "^1.2|^2.0|^3.0|^4.0",
-                "php": ">=5.4",
-                "symfony/polyfill-php56": "^1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.0|^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "SuperClosure\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeremy Lindblom",
-                    "email": "jeremeamia@gmail.com",
-                    "homepage": "https://github.com/jeremeamia",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Serialize Closure objects, including their context and binding",
-            "homepage": "https://github.com/jeremeamia/super_closure",
-            "keywords": [
-                "closure",
-                "function",
-                "lambda",
-                "parser",
-                "serializable",
-                "serialize",
-                "tokenizer"
-            ],
-            "time": "2018-03-21T22:21:57+00:00"
-        },
-        {
-            "name": "neomerx/cors-psr7",
-            "version": "v1.0.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/neomerx/cors-psr7.git",
-                "reference": "2556e2013f16a55532c95928455257d5b6bbc6e2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/neomerx/cors-psr7/zipball/2556e2013f16a55532c95928455257d5b6bbc6e2",
-                "reference": "2556e2013f16a55532c95928455257d5b6bbc6e2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.0",
-                "psr/http-message": "^1.0",
-                "psr/log": "^1.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "^5.7",
-                "scrutinizer/ocular": "^1.1",
-                "squizlabs/php_codesniffer": "^3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Neomerx\\Cors\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "neomerx",
-                    "email": "info@neomerx.com"
-                }
-            ],
-            "description": "Framework agnostic (PSR-7) CORS implementation (www.w3.org/TR/cors/)",
-            "homepage": "https://github.com/neomerx/cors-psr7",
-            "keywords": [
-                "Cross Origin Resource Sharing",
-                "Cross-Origin Resource Sharing",
-                "cors",
-                "neomerx",
-                "psr-7",
-                "psr7",
-                "w3.org",
-                "www.w3.org"
-            ],
-            "time": "2018-05-23T16:10:11+00:00"
+            "time": "2019-09-01T15:51:42+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -220,59 +168,76 @@
                 "router",
                 "routing"
             ],
+            "support": {
+                "issues": "https://github.com/nikic/FastRoute/issues",
+                "source": "https://github.com/nikic/FastRoute/tree/master"
+            },
             "time": "2018-02-13T20:26:39+00:00"
         },
         {
-            "name": "nikic/php-parser",
-            "version": "v4.3.0",
+            "name": "opis/closure",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc"
+                "url": "https://github.com/opis/closure.git",
+                "reference": "943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/9a9981c347c5c49d6dfe5cf826bb882b824080dc",
-                "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc",
+                "url": "https://api.github.com/repos/opis/closure/zipball/943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5",
+                "reference": "943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5",
                 "shasum": ""
             },
             "require": {
-                "ext-tokenizer": "*",
-                "php": ">=7.0"
+                "php": "^5.4 || ^7.0 || ^8.0"
             },
             "require-dev": {
-                "ircmaxell/php-yacc": "0.0.5",
-                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
+                "jeremeamia/superclosure": "^2.0",
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
             },
-            "bin": [
-                "bin/php-parse"
-            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "3.6.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "PhpParser\\": "lib/PhpParser"
-                }
+                    "Opis\\Closure\\": "src/"
+                },
+                "files": [
+                    "functions.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Nikita Popov"
+                    "name": "Marius Sarca",
+                    "email": "marius.sarca@gmail.com"
+                },
+                {
+                    "name": "Sorin Sarca",
+                    "email": "sarca_sorin@hotmail.com"
                 }
             ],
-            "description": "A PHP parser written in PHP",
+            "description": "A library that can be used to serialize closures (anonymous functions) and arbitrary objects.",
+            "homepage": "https://opis.io/closure",
             "keywords": [
-                "parser",
-                "php"
+                "anonymous functions",
+                "closure",
+                "function",
+                "serializable",
+                "serialization",
+                "serialize"
             ],
-            "time": "2019-11-08T13:50:10+00:00"
+            "support": {
+                "issues": "https://github.com/opis/closure/issues",
+                "source": "https://github.com/opis/closure/tree/3.6.1"
+            },
+            "time": "2020-11-07T02:01:34+00:00"
         },
         {
             "name": "php-di/invoker",
@@ -315,26 +280,29 @@
                 "invoke",
                 "invoker"
             ],
+            "support": {
+                "issues": "https://github.com/PHP-DI/Invoker/issues",
+                "source": "https://github.com/PHP-DI/Invoker/tree/master"
+            },
             "time": "2017-03-20T19:28:22+00:00"
         },
         {
             "name": "php-di/php-di",
-            "version": "6.0.11",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PHP-DI.git",
-                "reference": "9bdcc2f41f5fb700ddd01bc4fa8d5bd7b3f94620"
+                "reference": "955cacea6b0beaba07e8c11b8367f5b3d5abe89f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/9bdcc2f41f5fb700ddd01bc4fa8d5bd7b3f94620",
-                "reference": "9bdcc2f41f5fb700ddd01bc4fa8d5bd7b3f94620",
+                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/955cacea6b0beaba07e8c11b8367f5b3d5abe89f",
+                "reference": "955cacea6b0beaba07e8c11b8367f5b3d5abe89f",
                 "shasum": ""
             },
             "require": {
-                "jeremeamia/superclosure": "^2.0",
-                "nikic/php-parser": "^2.0|^3.0|^4.0",
-                "php": ">=7.0.0",
+                "opis/closure": "^3.5.5",
+                "php": ">=7.2.0",
                 "php-di/invoker": "^2.0",
                 "php-di/phpdoc-reader": "^2.0.1",
                 "psr/container": "^1.0"
@@ -345,10 +313,10 @@
             "require-dev": {
                 "doctrine/annotations": "~1.2",
                 "friendsofphp/php-cs-fixer": "^2.4",
-                "mnapoli/phpunit-easymock": "~1.0",
+                "mnapoli/phpunit-easymock": "^1.2",
                 "ocramius/proxy-manager": "~2.0.2",
-                "phpstan/phpstan": "^0.9.2",
-                "phpunit/phpunit": "~6.4"
+                "phpstan/phpstan": "^0.12",
+                "phpunit/phpunit": "^8.5|^9.0"
             },
             "suggest": {
                 "doctrine/annotations": "Install it if you want to use annotations (version ~1.2)",
@@ -368,7 +336,7 @@
                 "MIT"
             ],
             "description": "The dependency injection container for humans",
-            "homepage": "http://php-di.org/",
+            "homepage": "https://php-di.org/",
             "keywords": [
                 "PSR-11",
                 "container",
@@ -378,27 +346,42 @@
                 "ioc",
                 "psr11"
             ],
-            "time": "2019-12-12T07:58:02+00:00"
+            "support": {
+                "issues": "https://github.com/PHP-DI/PHP-DI/issues",
+                "source": "https://github.com/PHP-DI/PHP-DI/tree/6.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/mnapoli",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/php-di/php-di",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-12T14:39:15+00:00"
         },
         {
             "name": "php-di/phpdoc-reader",
-            "version": "2.1.1",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PhpDocReader.git",
-                "reference": "15678f7451c020226807f520efb867ad26fbbfcf"
+                "reference": "66daff34cbd2627740ffec9469ffbac9f8c8185c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PhpDocReader/zipball/15678f7451c020226807f520efb867ad26fbbfcf",
-                "reference": "15678f7451c020226807f520efb867ad26fbbfcf",
+                "url": "https://api.github.com/repos/PHP-DI/PhpDocReader/zipball/66daff34cbd2627740ffec9469ffbac9f8c8185c",
+                "reference": "66daff34cbd2627740ffec9469ffbac9f8c8185c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=7.2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.6"
+                "mnapoli/hard-mode": "~0.3.0",
+                "phpunit/phpunit": "^8.5|^9.0"
             },
             "type": "library",
             "autoload": {
@@ -415,30 +398,35 @@
                 "phpdoc",
                 "reflection"
             ],
-            "time": "2019-09-26T11:24:58+00:00"
+            "support": {
+                "issues": "https://github.com/PHP-DI/PhpDocReader/issues",
+                "source": "https://github.com/PHP-DI/PhpDocReader/tree/2.2.1"
+            },
+            "time": "2020-10-12T12:39:22+00:00"
         },
         {
             "name": "php-di/slim-bridge",
-            "version": "2.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/Slim-Bridge.git",
-                "reference": "df3c116bedb325c88c01991605380b0fd77b97ed"
+                "reference": "e7a568c00ecf6b0128f2a751990e06e77bedec68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/Slim-Bridge/zipball/df3c116bedb325c88c01991605380b0fd77b97ed",
-                "reference": "df3c116bedb325c88c01991605380b0fd77b97ed",
+                "url": "https://api.github.com/repos/PHP-DI/Slim-Bridge/zipball/e7a568c00ecf6b0128f2a751990e06e77bedec68",
+                "reference": "e7a568c00ecf6b0128f2a751990e06e77bedec68",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.0",
+                "php": "~7.1",
                 "php-di/invoker": "^2.0.0",
                 "php-di/php-di": "^6.0.0",
-                "slim/slim": "^3.9.0"
+                "slim/slim": "^4.2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~6.0"
+                "phpunit/phpunit": "~6.0",
+                "zendframework/zend-diactoros": "^2.1"
             },
             "type": "library",
             "autoload": {
@@ -451,57 +439,11 @@
                 "MIT"
             ],
             "description": "PHP-DI integration in Slim",
-            "time": "2018-02-24T10:54:47+00:00"
-        },
-        {
-            "name": "pimple/pimple",
-            "version": "v3.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/silexphp/Pimple.git",
-                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32"
+            "support": {
+                "issues": "https://github.com/PHP-DI/Slim-Bridge/issues",
+                "source": "https://github.com/PHP-DI/Slim-Bridge/tree/3.0.1"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/9e403941ef9d65d20cba7d54e29fe906db42cf32",
-                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "psr/container": "^1.0"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "^3.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.2.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Pimple": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Pimple, a simple Dependency Injection Container",
-            "homepage": "http://pimple.sensiolabs.org",
-            "keywords": [
-                "container",
-                "dependency injection"
-            ],
-            "time": "2018-01-21T07:42:36+00:00"
+            "time": "2020-01-13T19:11:12+00:00"
         },
         {
             "name": "psr/container",
@@ -550,7 +492,66 @@
                 "container-interop",
                 "psr"
             ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/master"
+            },
             "time": "2017-02-14T16:28:37+00:00"
+        },
+        {
+            "name": "psr/http-factory",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-factory.git",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-factory/tree/master"
+            },
+            "time": "2019-04-30T12:38:16+00:00"
         },
         {
             "name": "psr/http-message",
@@ -600,20 +601,137 @@
                 "request",
                 "response"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/master"
+            },
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
-            "name": "psr/log",
-            "version": "1.1.2",
+            "name": "psr/http-server-handler",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801"
+                "url": "https://github.com/php-fig/http-server-handler.git",
+                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/446d54b4cb6bf489fc9d75f55843658e6f25d801",
-                "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801",
+                "url": "https://api.github.com/repos/php-fig/http-server-handler/zipball/aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
+                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP server-side request handler",
+            "keywords": [
+                "handler",
+                "http",
+                "http-interop",
+                "psr",
+                "psr-15",
+                "psr-7",
+                "request",
+                "response",
+                "server"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/http-server-handler/issues",
+                "source": "https://github.com/php-fig/http-server-handler/tree/master"
+            },
+            "time": "2018-10-30T16:46:14+00:00"
+        },
+        {
+            "name": "psr/http-server-middleware",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-server-middleware.git",
+                "reference": "2296f45510945530b9dceb8bcedb5cb84d40c5f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-server-middleware/zipball/2296f45510945530b9dceb8bcedb5cb84d40c5f5",
+                "reference": "2296f45510945530b9dceb8bcedb5cb84d40c5f5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP server-side middleware",
+            "keywords": [
+                "http",
+                "http-interop",
+                "middleware",
+                "psr",
+                "psr-15",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/http-server-middleware/issues",
+                "source": "https://github.com/php-fig/http-server-middleware/tree/master"
+            },
+            "time": "2018-10-30T17:12:04+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc",
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc",
                 "shasum": ""
             },
             "require": {
@@ -647,38 +765,179 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2019-11-01T11:05:21+00:00"
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.3"
+            },
+            "time": "2020-03-23T09:12:05+00:00"
         },
         {
-            "name": "slim/slim",
-            "version": "3.12.3",
+            "name": "ralouphie/getallheaders",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/slimphp/Slim.git",
-                "reference": "1c9318a84ffb890900901136d620b4f03a59da38"
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim/zipball/1c9318a84ffb890900901136d620b4f03a59da38",
-                "reference": "1c9318a84ffb890900901136d620b4f03a59da38",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "support": {
+                "issues": "https://github.com/ralouphie/getallheaders/issues",
+                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
+            },
+            "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "slim/psr7",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slimphp/Slim-Psr7.git",
+                "reference": "832912cb3c2a807d472ef0ac392552e85703a667"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slimphp/Slim-Psr7/zipball/832912cb3c2a807d472ef0ac392552e85703a667",
+                "reference": "832912cb3c2a807d472ef0ac392552e85703a667",
+                "shasum": ""
+            },
+            "require": {
+                "fig/http-message-util": "^1.1.4",
+                "php": "^7.2",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "ralouphie/getallheaders": "^3"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "1.0",
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "adriansuter/php-autoload-override": "^1.2",
+                "ext-json": "*",
+                "http-interop/http-factory-tests": "^0.6.0",
+                "php-http/psr7-integration-tests": "dev-master",
+                "phpstan/phpstan": "^0.12",
+                "phpunit/phpunit": "^8.5",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Slim\\Psr7\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Lockhart",
+                    "email": "hello@joshlockhart.com",
+                    "homepage": "http://joshlockhart.com"
+                },
+                {
+                    "name": "Andrew Smith",
+                    "email": "a.smith@silentworks.co.uk",
+                    "homepage": "http://silentworks.co.uk"
+                },
+                {
+                    "name": "Rob Allen",
+                    "email": "rob@akrabat.com",
+                    "homepage": "http://akrabat.com"
+                },
+                {
+                    "name": "Pierre Berube",
+                    "email": "pierre@lgse.com",
+                    "homepage": "http://www.lgse.com"
+                }
+            ],
+            "description": "Strict PSR-7 implementation",
+            "homepage": "https://www.slimframework.com",
+            "keywords": [
+                "http",
+                "psr-7",
+                "psr7"
+            ],
+            "support": {
+                "issues": "https://github.com/slimphp/Slim-Psr7/issues",
+                "source": "https://github.com/slimphp/Slim-Psr7/tree/master"
+            },
+            "time": "2020-08-18T22:49:11+00:00"
+        },
+        {
+            "name": "slim/slim",
+            "version": "4.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slimphp/Slim.git",
+                "reference": "9f6a54f70438655f8c4be63b2b442d34a0c8a142"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/9f6a54f70438655f8c4be63b2b442d34a0c8a142",
+                "reference": "9f6a54f70438655f8c4be63b2b442d34a0c8a142",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "ext-libxml": "*",
-                "ext-simplexml": "*",
-                "nikic/fast-route": "^1.0",
-                "php": ">=5.5.0",
-                "pimple/pimple": "^3.0",
+                "nikic/fast-route": "^1.3",
+                "php": "^7.2",
                 "psr/container": "^1.0",
-                "psr/http-message": "^1.0"
-            },
-            "provide": {
-                "psr/http-message-implementation": "1.0"
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0",
+                "psr/http-server-middleware": "^1.0",
+                "psr/log": "^1.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.0",
-                "squizlabs/php_codesniffer": "^2.5"
+                "adriansuter/php-autoload-override": "^1.2",
+                "ext-simplexml": "*",
+                "guzzlehttp/psr7": "^1.7",
+                "http-interop/http-factory-guzzle": "^1.0",
+                "laminas/laminas-diactoros": "^2.4",
+                "nyholm/psr7": "^1.3",
+                "nyholm/psr7-server": "^1.0.0",
+                "phpspec/prophecy": "^1.12",
+                "phpstan/phpstan": "^0.12.54",
+                "phpunit/phpunit": "^8.5",
+                "slim/http": "^1.1",
+                "slim/psr7": "^1.2",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "suggest": {
+                "ext-simplexml": "Needed to support XML format in BodyParsingMiddleware",
+                "ext-xml": "Needed to support XML format in BodyParsingMiddleware",
+                "php-di/php-di": "PHP-DI is the recommended container library to be used with Slim",
+                "slim/psr7": "Slim PSR-7 implementation. See https://www.slimframework.com/docs/v4/start/installation.html for more information."
             },
             "type": "library",
             "autoload": {
@@ -707,109 +966,76 @@
                     "homepage": "http://akrabat.com"
                 },
                 {
+                    "name": "Pierre Berube",
+                    "email": "pierre@lgse.com",
+                    "homepage": "http://www.lgse.com"
+                },
+                {
                     "name": "Gabriel Manricks",
                     "email": "gmanricks@me.com",
                     "homepage": "http://gabrielmanricks.com"
                 }
             ],
             "description": "Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs",
-            "homepage": "https://slimframework.com",
+            "homepage": "https://www.slimframework.com",
             "keywords": [
                 "api",
                 "framework",
                 "micro",
                 "router"
             ],
-            "time": "2019-11-28T17:40:33+00:00"
+            "support": {
+                "docs": "https://www.slimframework.com/docs/v4/",
+                "forum": "https://discourse.slimframework.com/",
+                "irc": "irc://irc.freenode.net:6667/slimphp",
+                "issues": "https://github.com/slimphp/Slim/issues",
+                "rss": "https://www.slimframework.com/blog/feed.rss",
+                "slack": "https://slimphp.slack.com/",
+                "source": "https://github.com/slimphp/Slim",
+                "wiki": "https://github.com/slimphp/Slim/wiki"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/slimphp",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/slim/slim",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-11-15T16:14:14+00:00"
         },
         {
-            "name": "symfony/polyfill-ctype",
-            "version": "v1.13.1",
+            "name": "symfony/deprecation-contracts",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3"
+                "url": "https://github.com/symfony/deprecation-contracts.git",
+                "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5fa56b4074d1ae755beb55617ddafe6f5d78f665",
+                "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
-            },
-            "suggest": {
-                "ext-ctype": "For best performance"
+                "php": ">=7.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "2.2-dev"
+                },
+                "thanks": {
+                    "name": "symfony/contracts",
+                    "url": "https://github.com/symfony/contracts"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Ctype\\": ""
-                },
                 "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Gert de Pagter",
-                    "email": "BackEndTea@gmail.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill for ctype functions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "ctype",
-                "polyfill",
-                "portable"
-            ],
-            "time": "2019-11-27T13:56:44+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php56",
-            "version": "v1.13.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php56.git",
-                "reference": "53dd1cdf3cb986893ccf2b96665b25b3abb384f4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/53dd1cdf3cb986893ccf2b96665b25b3abb384f4",
-                "reference": "53dd1cdf3cb986893ccf2b96665b25b3abb384f4",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "symfony/polyfill-util": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.13-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php56\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
+                    "function.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -826,96 +1052,56 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony polyfill backporting some PHP 5.6+ features to lower PHP versions",
+            "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2019-11-27T13:56:44+00:00"
-        },
-        {
-            "name": "symfony/polyfill-util",
-            "version": "v1.13.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-util.git",
-                "reference": "964a67f293b66b95883a5ed918a65354fcd2258f"
+            "support": {
+                "source": "https://github.com/symfony/deprecation-contracts/tree/master"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/964a67f293b66b95883a5ed918a65354fcd2258f",
-                "reference": "964a67f293b66b95883a5ed918a65354fcd2258f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.13-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Util\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
+            "funding": [
                 {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
                 },
                 {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
                 }
             ],
-            "description": "Symfony utilities for portability of PHP codes",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compat",
-                "compatibility",
-                "polyfill",
-                "shim"
-            ],
-            "time": "2019-11-27T13:56:44+00:00"
+            "time": "2020-09-07T11:33:47+00:00"
         },
         {
-            "name": "tuupola/cors-middleware",
-            "version": "0.5.2",
+            "name": "symfony/dotenv",
+            "version": "v5.1.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/tuupola/cors-middleware.git",
-                "reference": "db69d8e67b99570b16e8cd5f78c423ed1167cb21"
+                "url": "https://github.com/symfony/dotenv.git",
+                "reference": "29ac2a3e538da61780a769827c716738ce7accbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tuupola/cors-middleware/zipball/db69d8e67b99570b16e8cd5f78c423ed1167cb21",
-                "reference": "db69d8e67b99570b16e8cd5f78c423ed1167cb21",
+                "url": "https://api.github.com/repos/symfony/dotenv/zipball/29ac2a3e538da61780a769827c716738ce7accbb",
+                "reference": "29ac2a3e538da61780a769827c716738ce7accbb",
                 "shasum": ""
             },
             "require": {
-                "neomerx/cors-psr7": "^1.0",
-                "php": "^5.5 || ^7.0"
+                "php": ">=7.2.5",
+                "symfony/deprecation-contracts": "^2.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8",
-                "squizlabs/php_codesniffer": "^2.5",
-                "zendframework/zend-diactoros": "^1.3"
+                "symfony/process": "^4.4|^5.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Tuupola\\Middleware\\": "src"
-                }
+                    "Symfony\\Component\\Dotenv\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -923,20 +1109,39 @@
             ],
             "authors": [
                 {
-                    "name": "Mika Tuupola",
-                    "email": "tuupola@appelsiini.net",
-                    "homepage": "http://www.appelsiini.net/",
-                    "role": "Developer"
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "PSR-7 CORS Middleware",
-            "homepage": "https://github.com/tuupola/cors-middleware",
+            "description": "Registers environment variables from a .env file",
+            "homepage": "https://symfony.com",
             "keywords": [
-                "cors",
-                "middleware",
-                "slim"
+                "dotenv",
+                "env",
+                "environment"
             ],
-            "time": "2016-08-12T13:12:58+00:00"
+            "support": {
+                "source": "https://github.com/symfony/dotenv/tree/v5.1.8"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-24T12:01:57+00:00"
         },
         {
             "name": "usmanhalalit/pixie",
@@ -992,6 +1197,10 @@
                 "sql",
                 "sqlite"
             ],
+            "support": {
+                "issues": "https://github.com/usmanhalalit/pixie/issues",
+                "source": "https://github.com/usmanhalalit/pixie/tree/2.x"
+            },
             "time": "2017-10-17T07:17:04+00:00"
         },
         {
@@ -1039,152 +1248,11 @@
                 "ioc",
                 "test"
             ],
+            "support": {
+                "issues": "https://github.com/usmanhalalit/viocon/issues",
+                "source": "https://github.com/usmanhalalit/viocon/tree/master"
+            },
             "time": "2013-07-13T19:54:56+00:00"
-        },
-        {
-            "name": "vikkio88/nicu-framework",
-            "version": "v0.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vikkio88/nicu-framework.git",
-                "reference": "4a050d8f3b5407b5914ff56535908d2a9c8a401d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vikkio88/nicu-framework/zipball/4a050d8f3b5407b5914ff56535908d2a9c8a401d",
-                "reference": "4a050d8f3b5407b5914ff56535908d2a9c8a401d",
-                "shasum": ""
-            },
-            "require": {
-                "hassankhan/config": "^0.11.2",
-                "php-di/slim-bridge": "^2.0",
-                "tuupola/cors-middleware": "^0.5.2",
-                "visavi/cleanup": "^1.5",
-                "vlucas/phpdotenv": "^2.4"
-            },
-            "require-dev": {
-                "phpmd/phpmd": "^2.6",
-                "phpunit/phpunit": "^6.5",
-                "squizlabs/php_codesniffer": "^3.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Nicu\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Vincenzo Ciaccio",
-                    "email": "vincenzo.ciaccio@gmail.com"
-                }
-            ],
-            "description": "a small framework (built on slim + php-di) to create restful api",
-            "keywords": [
-                "Microservice",
-                "microframework",
-                "mvp",
-                "php-di",
-                "rest",
-                "slim"
-            ],
-            "time": "2019-05-09T19:12:31+00:00"
-        },
-        {
-            "name": "visavi/cleanup",
-            "version": "v1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/visavi/cleanup.git",
-                "reference": "fc13c6376fabe61522d4a3cfeab90e8555c1fbd2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/visavi/cleanup/zipball/fc13c6376fabe61522d4a3cfeab90e8555c1fbd2",
-                "reference": "fc13c6376fabe61522d4a3cfeab90e8555c1fbd2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "bin": [
-                "cleanup"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alexander Grigorev",
-                    "email": "admin@visavi.net",
-                    "homepage": "http://visavi.net"
-                }
-            ],
-            "description": "Cleaning vendor directory",
-            "homepage": "http://visavi.net",
-            "keywords": [
-                "clean",
-                "composer",
-                "vendor"
-            ],
-            "time": "2019-12-08T16:59:14+00:00"
-        },
-        {
-            "name": "vlucas/phpdotenv",
-            "version": "v2.6.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "2a7dcf7e3e02dc5e701004e51a6f304b713107d5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/2a7dcf7e3e02dc5e701004e51a6f304b713107d5",
-                "reference": "2a7dcf7e3e02dc5e701004e51a6f304b713107d5",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "symfony/polyfill-ctype": "^1.9"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.6-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Dotenv\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Vance Lucas",
-                    "email": "vance@vancelucas.com",
-                    "homepage": "http://www.vancelucas.com"
-                }
-            ],
-            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
-            "keywords": [
-                "dotenv",
-                "env",
-                "environment"
-            ],
-            "time": "2019-01-29T11:11:52+00:00"
         }
     ],
     "packages-dev": [],
@@ -1196,5 +1264,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

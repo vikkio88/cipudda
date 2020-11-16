@@ -1,8 +1,9 @@
 <script>
-    import { push } from "svelte-spa-router";
-    import { marked } from "cipudda-libs";
+    import {push} from "svelte-spa-router";
+    import {marked} from "cipudda-libs";
 
     import Button from "../common/Button.svelte";
+
     const generateId = () => Math.random().toString(36).substr(2, 5);
 
     const api = process.env.API_URL;
@@ -11,13 +12,13 @@
     let title = "Some Title";
     $: slug = title
         ? `${title
-              .toString()
-              .toLowerCase()
-              .normalize("NFD")
-              .trim()
-              .replace(/\s+/g, "-")
-              .replace(/[^\w\-]+/g, "")
-              .replace(/\-\-+/g, "-")}-${generateId()}`
+            .toString()
+            .toLowerCase()
+            .normalize("NFD")
+            .trim()
+            .replace(/\s+/g, "-")
+            .replace(/[^\w\-]+/g, "")
+            .replace(/\-\-+/g, "-")}-${generateId()}`
         : null;
 
     let postBody = "`Insert Post body` [here](google.com)";
@@ -25,12 +26,11 @@
     let response = null;
 
     const createPost = async () => {
-        const data = { slug, title, postBody, tags: "" };
-        console.log('sending', key);
-        response = await fetch(`${api}admin/posts`, {
-            method: "POST",
+        const data = {slug, title, body: postBody, tags: ""};
+
+        response = await fetch(`${api}/admin/posts`, {
+            method: 'post',
             headers: {
-                "Content-Type": "application/json",
                 authorization: key,
             },
             body: JSON.stringify(data),
@@ -80,12 +80,12 @@
 
     <div class="post-wrapper">
         <div class="source">
-            <input bind:value={title} type="text" placeholder="Enter Title" />
+            <input bind:value={title} type="text" placeholder="Enter Title"/>
             <textarea
-                cols="2"
-                rows="10"
-                bind:value={postBody}
-                placeholder="Enter markdown here" />
+                    cols="2"
+                    rows="10"
+                    bind:value={postBody}
+                    placeholder="Enter markdown here"/>
         </div>
         <div class="preview">
             <h2>Title: {title}</h2>

@@ -3,15 +3,28 @@
 
 namespace App\Provider;
 
-
-use Nicu\Providers\Provider;
 use Noodlehaus\Config;
 use Pixie\Connection;
 use Pixie\QueryBuilder\QueryBuilderHandler;
 use Psr\Container\ContainerInterface;
+use Slim\App;
 
-class AppProvider extends Provider
+class AppProvider
 {
+    /**
+     * @var App
+     */
+    private $app;
+
+    public function __construct(App $app)
+    {
+        $this->app = $app;
+    }
+
+    private function bind($abstract, $concrete)
+    {
+        $this->app->getContainer()->set($abstract, $concrete);
+    }
 
     public function boot()
     {

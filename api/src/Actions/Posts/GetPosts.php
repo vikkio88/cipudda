@@ -4,8 +4,8 @@
 namespace App\Actions\Posts;
 
 
+use App\Actions\ApiAction;
 use App\Repositories\PostRepository;
-use Nicu\Actions\ApiAction;
 
 class GetPosts extends ApiAction
 {
