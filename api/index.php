@@ -1,9 +1,13 @@
 <?php
 include 'vendor/autoload.php';
 
-use App\Actions\Admin\CreatePost;
-use App\Actions\Admin\GetPosts as AdmGetPosts;
-use App\Actions\Posts\GetPosts;
+use App\Actions\Admin\{
+    GetPosts as AdmGetPosts,
+    CreatePost,
+    UpdatePost,
+    DeletePost
+};
+use App\Actions\Posts\{GetPosts, GetPost};
 use App\Middlewares\AuthGuard;
 use App\Middlewares\Cors;
 use App\Provider\AppProvider;
@@ -28,14 +32,17 @@ $app->options('/{routes:.+}', function ($_, $response) {
     return $response;
 });
 
-
 $app->get('/posts', GetPosts::class);
+$app->get('/posts/{slug}', GetPost::class);
 $app->group('/admin', function (RouteCollectorProxy $group) {
     $group->get('/posts', AdmGetPosts::class);
     $group->post('/posts', CreatePost::class);
+    $group->patch('/posts/{slug}', UpdatePost::class);
+    $group->delete('/posts/{slug}', DeletePost::class);
 
 })->add(AuthGuard::class);
 
+$app->addErrorMiddleware(true, true, true);
 $app->run();
 
 

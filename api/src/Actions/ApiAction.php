@@ -65,8 +65,8 @@ abstract class ApiAction
     private function getArgsFromRequest(RequestInterface $request): array
     {
         $attributes = $request->getAttributes();
-        return isset($attributes['route']) ?
-            ($attributes['route'])->getArguments() : [];
+        return isset($attributes['__route__']) ?
+            ($attributes['__route__'])->getArguments() : [];
     }
 
     public function __invoke(RequestInterface $request, ResponseInterface $response): ResponseInterface
@@ -77,7 +77,7 @@ abstract class ApiAction
         return $this->execute();
     }
 
-    public function execute():ResponseInterface
+    public function execute(): ResponseInterface
     {
         try {
             $this->payload = $this->action();

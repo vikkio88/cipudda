@@ -4,9 +4,9 @@
 namespace App\Repositories;
 
 
+use App\Exceptions\NotFound;
 use App\Models\Post;
 use App\Models\PostListItem;
-use Nicu\Exceptions\NotFound;
 use Pixie\QueryBuilder\QueryBuilderHandler;
 
 
