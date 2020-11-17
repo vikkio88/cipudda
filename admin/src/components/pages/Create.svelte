@@ -10,6 +10,8 @@
     const key = process.env.API_KEY;
 
     let title = "Some Title";
+    let tags = "";
+    $: formattedTags = tags.trim().split(' ').join(',');
     $: slug = title
         ? `${title
             .toString()
@@ -26,12 +28,12 @@
     let response = null;
 
     const createPost = async () => {
-        const data = {slug, title, body: postBody, tags: ""};
+        const data = {slug, title, body: postBody, tags: formattedTags};
 
         response = await fetch(`${api}/admin/posts`, {
             method: 'post',
             headers: {
-                authorization: key,
+                'x-api-key': key,
             },
             body: JSON.stringify(data),
         });
@@ -81,6 +83,7 @@
     <div class="post-wrapper">
         <div class="source">
             <input bind:value={title} type="text" placeholder="Enter Title"/>
+            <input bind:value={tags} size="30" type="text" placeholder="Enter tags"/>
             <textarea
                     cols="2"
                     rows="10"
@@ -89,6 +92,7 @@
         </div>
         <div class="preview">
             <h2>Title: {title}</h2>
+            <h3>tags: {formattedTags}</h3>
             <strong>slug: {slug ? slug : '-'}</strong>
             {@html marked(postBody)}
         </div>

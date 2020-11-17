@@ -7,7 +7,7 @@ use App\Actions\Admin\{
     UpdatePost,
     DeletePost
 };
-use App\Actions\Posts\{GetPosts, GetPost};
+use App\Actions\Posts\{GetPosts, GetPost, GetTaggedPosts};
 use App\Middlewares\AuthGuard;
 use App\Middlewares\Cors;
 use App\Provider\AppProvider;
@@ -28,11 +28,12 @@ $app = Bridge::create($container);
 
 // Setting up Cors
 $app->add(Cors::class);
-$app->options('/{routes:.+}', function ($_, $response) {
+$app->options('/{routes:.+}', function ($request, $response) {
     return $response;
 });
 
 $app->get('/posts', GetPosts::class);
+$app->get('/posts/tags', GetTaggedPosts::class);
 $app->get('/posts/{slug}', GetPost::class);
 $app->group('/admin', function (RouteCollectorProxy $group) {
     $group->get('/posts', AdmGetPosts::class);
