@@ -2,6 +2,7 @@
     import { push } from "svelte-spa-router";
     import { onMount } from "svelte";
     import Button from "../common/Button.svelte";
+    import Post from "../common/PostListItem.svelte";
 
     const api = process.env.API_URL;
 
@@ -10,7 +11,6 @@
     onMount(async () => {
         const res = await fetch(`${api}/posts`);
         let response = await res.json();
-        console.log(response);
         posts = response.payload;
     });
 </script>
@@ -23,14 +23,20 @@
         justify-content: flex-start;
         align-items: center;
     }
+    .posts {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 80%;
+    }
 </style>
 
 <div class="page-main">
-    <Button onClick={() => push('/')}>Back</Button>
+    <Button lg onClick={() => push('/')}>Back</Button>
 
     <div class="posts">
         {#each posts as post (post.slug)}
-            <span>{post.title}</span>
+            <Post {...post} />
         {:else}
             <h3>Loading...</h3>
         {/each}

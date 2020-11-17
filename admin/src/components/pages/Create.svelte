@@ -76,8 +76,8 @@
 
 <div class="page-main">
     <div class="actions-wrapper">
-        <Button onClick={() => push('/')}>Back</Button>
-        <Button onClick={() => createPost()}>Create</Button>
+        <Button lg onClick={() => push('/')}>Back</Button>
+        <Button lg onClick={() => createPost()}>Create</Button>
     </div>
 
     <div class="post-wrapper">
