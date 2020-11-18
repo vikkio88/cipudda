@@ -1,18 +1,20 @@
 <script>
     import { push } from "svelte-spa-router";
     import { onMount } from "svelte";
+    import api from '../../libs/api';
+
     import Button from "../common/Button.svelte";
     import Post from "../common/PostListItem.svelte";
-
-    const api = process.env.API_URL;
 
     let posts = [];
 
     onMount(async () => {
-        const res = await fetch(`${api}/posts`);
-        let response = await res.json();
-        posts = response.payload;
+        posts = await api.admin.getPosts();
     });
+
+    const onDeleted = slug => {
+        posts = posts.filter(p => p.slug !== slug);
+    };
 </script>
 
 <style>
@@ -36,9 +38,9 @@
 
     <div class="posts">
         {#each posts as post (post.slug)}
-            <Post {...post} />
+            <Post {...post} onDeleted={onDeleted}/>
         {:else}
-            <h3>Loading...</h3>
+            <h3>No Posts...</h3>
         {/each}
     </div>
 </div>

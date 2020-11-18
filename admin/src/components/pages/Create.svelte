@@ -1,6 +1,6 @@
 <script>
-    import {push} from "svelte-spa-router";
-    import {marked} from "cipudda-libs";
+    import { push } from "svelte-spa-router";
+    import { marked } from "cipudda-libs";
 
     import Button from "../common/Button.svelte";
 
@@ -11,16 +11,16 @@
 
     let title = "Some Title";
     let tags = "";
-    $: formattedTags = tags.trim().split(' ').join(',');
+    $: formattedTags = tags.trim().split(" ").join(",");
     $: slug = title
         ? `${title
-            .toString()
-            .toLowerCase()
-            .normalize("NFD")
-            .trim()
-            .replace(/\s+/g, "-")
-            .replace(/[^\w\-]+/g, "")
-            .replace(/\-\-+/g, "-")}-${generateId()}`
+              .toString()
+              .toLowerCase()
+              .normalize("NFD")
+              .trim()
+              .replace(/\s+/g, "-")
+              .replace(/[^\w\-]+/g, "")
+              .replace(/\-\-+/g, "-")}-${generateId()}`
         : null;
 
     let postBody = "`Insert Post body` [here](google.com)";
@@ -28,16 +28,17 @@
     let response = null;
 
     const createPost = async () => {
-        const data = {slug, title, body: postBody, tags: formattedTags};
+        const data = { slug, title, body: postBody, tags: formattedTags };
 
         response = await fetch(`${api}/admin/posts`, {
-            method: 'post',
+            method: "post",
             headers: {
-                'x-api-key': key,
+                "x-api-key": key,
             },
             body: JSON.stringify(data),
         });
         response = response.json();
+        push("/posts");
     };
 </script>
 
@@ -82,13 +83,17 @@
 
     <div class="post-wrapper">
         <div class="source">
-            <input bind:value={title} type="text" placeholder="Enter Title"/>
-            <input bind:value={tags} size="30" type="text" placeholder="Enter tags"/>
+            <input bind:value={title} type="text" placeholder="Enter Title" />
+            <input
+                bind:value={tags}
+                size="30"
+                type="text"
+                placeholder="Enter tags" />
             <textarea
-                    cols="2"
-                    rows="10"
-                    bind:value={postBody}
-                    placeholder="Enter markdown here"/>
+                cols="2"
+                rows="10"
+                bind:value={postBody}
+                placeholder="Enter markdown here" />
         </div>
         <div class="preview">
             <h2>Title: {title}</h2>

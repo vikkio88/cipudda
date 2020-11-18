@@ -1,9 +1,20 @@
 <script>
-import Button from "./Button.svelte";
+    import api from "../../libs/api";
+    import { pop,push } from "svelte-spa-router";
+
+    import Button from "./Button.svelte";
+    import ConfirmButton from "./ConfirmButton.svelte";
 
     export let slug = "";
     export let title = "";
     export let publishedDate = "";
+
+    export let onDeleted = () => {};
+
+    const onDelete = async (slug) => {
+        await api.admin.deletePost(slug);
+        onDeleted(slug);
+    };
 </script>
 
 <style>
@@ -24,7 +35,7 @@ import Button from "./Button.svelte";
     }
 
     .info {
-        flex: 3;
+        flex: 2;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -33,6 +44,10 @@ import Button from "./Button.svelte";
 
     .actions {
         flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
     }
 </style>
 
@@ -42,9 +57,8 @@ import Button from "./Button.svelte";
         <strong>{slug}</strong>
         <span>{publishedDate}</span>
     </div>
-    <div class="actions" >
+    <div class="actions">
         <Button>Edit</Button>
-        <Button>Delete</Button>
+        <ConfirmButton onClick={() => onDelete(slug)}>Delete</ConfirmButton>
     </div>
-
 </div>

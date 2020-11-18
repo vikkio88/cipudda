@@ -14,6 +14,6 @@
 </style>
 
 <div class="page-main">
-    <Button lg onClick={() => push('/posts')}>Posts</Button>
-    <Button lg onClick={() => push('/create')}>Create</Button>
+    <Button lg fluid onClick={() => push('/posts')}>Posts</Button>
+    <Button lg fluid onClick={() => push('/create')}>Create</Button>
 </div>

@@ -2,6 +2,8 @@
     export let onClick = () => {};
     export let disabled = false;
     export let lg = false;
+    export let sm = false;
+    export let fluid = false;
 </script>
 
 <style>
@@ -17,8 +19,20 @@
         font-size: 2em;
         margin: 5px;
     }
+    button.btn-sm {
+        padding: 2px;
+        font-size: 1em;
+        margin: 2px;
+    }
+
+    .fluid {
+        width: 100%;
+    }
 </style>
 
-<button class={`btn${lg ? ' btn-lg' : ''}`} on:click={onClick} {disabled}>
+<button
+    class={`btn${fluid ? ' fluid' : ''}${lg ? ' btn-lg' : ''}${sm && !lg ? ' btn-sm' : ''}`}
+    on:click={onClick}
+    {disabled}>
     <slot />
 </button>
