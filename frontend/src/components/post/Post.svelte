@@ -15,10 +15,10 @@
 
   @media screen and (max-width: 650px) {
     .single-post {
-      width: 98vw;
+      min-width: 98vw;
     }
     .tags {
-      width: 98vw;
+      min-width: 98vw;
       display: flex;
     }
     .tags p {
@@ -30,14 +30,17 @@
     }
   }
 
-  a.tag {
-    margin-left: 5px;
-    margin-right: 5px;
+  .tags {
+    width: 100%;
+  }
+  .tag {
+    margin-left: 10px;
+    margin-right: 105px;
   }
 </style>
 
-<section class="nes-container with-title single-post">
-  <h2 class="title blackbg">{title}</h2>
+<section class="container single-post">
+  <h2 class="title">{title}</h2>
   <h3 class="subtitle">{publishedDate}</h3>
   <p class="post-body">
     {@html marked(body)}
@@ -45,8 +48,8 @@
 </section>
 
 {#if tags}
-  <section class="nes-container with-title tags">
-    <h2 class="title blackbg">Tags</h2>
+  <section class="tags">
+    <h2 class="title">Tags</h2>
     <p>
       {#each formattedTags as tag}
         <a href={`/posts/tag/${tag}`} use:link class="tag">#{tag}</a>

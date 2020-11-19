@@ -10,7 +10,7 @@
 
 <style>
   .index-item {
-    width: 80vw;
+    min-width: 80vw;
   }
 
   @media screen and (max-width: 500px) {
@@ -25,8 +25,8 @@
   }
 </style>
 
-<section class="nes-container with-title index-item">
-  <h2 class="title blackbg">{title}</h2>
+<section class="container index-item">
+  <h2 class="title">{title}</h2>
   <h3 class="subtitle">{publishedDate}</h3>
   {#if !hideBody}
     <p class="post-body">
