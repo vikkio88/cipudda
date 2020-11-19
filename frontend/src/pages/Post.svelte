@@ -8,7 +8,7 @@
   let post = null;
 
   onMount(async () => {
-    const res = await fetch(`${API_URL}/post/${slug}`);
+    const res = await fetch(`${API_URL}/posts/${slug}`);
     const response = await res.json();
     post = response.payload;
   });
