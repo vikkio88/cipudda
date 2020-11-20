@@ -38,6 +38,11 @@ h3.subtitle {
 .header h1 {
 	color: white;
 	margin-bottom: 0;
+	cursor: pointer;
+}
+
+.header h1:hover {
+	text-shadow: black 10px 10px;
 }
 
 strong {
@@ -46,6 +51,7 @@ strong {
 }
 
 main {
+	min-width: 100%;
 	min-height: 65vh;
 	display: flex;
     flex-direction: column;
@@ -71,9 +77,28 @@ div.no-result {
 	justify-content: center;
 }
 
+section.container {
+	margin-top: 40px;
+	width: 98%;
+	padding: 20px;
+	/* Media Query to make padding bigger for desktop */
+	padding-left: 30px;
+	padding-right: 30px;
+	border: solid 3px #1f364d;
+	border-radius: 4px;
+
+}
+
 p.post-body{
 	line-height: 1.5em;
 	font-family: "Comfortaa";
+	border-top: solid 1px  #a2b8cd;
+	text-align: justify;
+	text-justify: inter-word;  
+}
+
+p.post-body h1,h2,h3 {
+	text-align: left;
 }
 
 p.post-body img {
@@ -87,21 +112,22 @@ p.post-body code {
 	padding-left: 5px;
 	padding-right: 5px;
 	font-size: 23px;
+	text-align: left;
 }
 p.post-body pre {
 	background-color: #0a1c2c;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	padding: 15px;
+	padding: 20px;
 	line-height: normal;
+	text-align: left;
 }
 
 p.post-body blockquote {
 	background-color: #0a1c2c;
-	padding-left: 15px;
-	padding-top: 2px;
-	padding-bottom: 2px;
+	padding: 15px;
 	border-left: solid 5px rgb(54, 53, 52);
+	text-align: left;
 }
 
 a {
