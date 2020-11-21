@@ -1,5 +1,5 @@
 <script>
-    import { push } from "svelte-spa-router";
+    import { pop, replace } from "svelte-spa-router";
 
     import PostEditor from "../post/PostEditor.svelte";
     import Button from "../common/Button.svelte";
@@ -14,7 +14,7 @@
     const createPost = async () => {
         const data = { slug, title, body: postBody, tags: formattedTags };
         await api.admin.createPost(data);
-        push("/posts");
+        replace("/posts");
     };
 </script>
 
@@ -30,7 +30,7 @@
 
 <div class="page-main">
     <div class="actions-wrapper">
-        <Button lg onClick={() => push('/')}>Back</Button>
+        <Button lg onClick={() => pop()}>Back</Button>
         <Button lg onClick={() => createPost()}>Create</Button>
     </div>
     <PostEditor bind:title bind:postBody bind:formattedTags bind:slug />

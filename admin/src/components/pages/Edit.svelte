@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { push } from "svelte-spa-router";
+    import { pop } from "svelte-spa-router";
 
     export let params = {};
 
@@ -8,7 +8,7 @@
 
     import PostEditor from "../post/PostEditor.svelte";
     import Button from "../common/Button.svelte";
-import api from "../../libs/api";
+    import api from "../../libs/api";
 
     let title = null;
 
@@ -41,7 +41,7 @@ import api from "../../libs/api";
 
 <div class="page-main">
     <div class="actions-wrapper">
-        <Button lg onClick={() => push('/')}>Back</Button>
+        <Button lg onClick={() => pop()}>Back</Button>
         <Button lg onClick={() => console.log('Update')}>Update</Button>
     </div>
     {#if !response}
