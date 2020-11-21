@@ -8,9 +8,7 @@
 
     import PostEditor from "../post/PostEditor.svelte";
     import Button from "../common/Button.svelte";
-
-    const api = process.env.API_URL;
-    const key = process.env.API_KEY;
+import api from "../../libs/api";
 
     let title = null;
 
@@ -22,20 +20,13 @@
     let response = null;
 
     onMount(async () => {
-        const res = await getPost();
-        response = res.payload;
-
+        response = await api.getPost(slug);
         slug = response.slug;
         title = response.title;
         postBody = response.body;
         formattedTags = response.tags;
         tags = formattedTags ? formattedTags.split(",").join(" ") : "";
     });
-
-    const getPost = async () => {
-        const res = await fetch(`${api}/posts/${slug}`);
-        return await res.json();
-    };
 </script>
 
 <style>
