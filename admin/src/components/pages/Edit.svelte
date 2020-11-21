@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { pop } from "svelte-spa-router";
+    import { pop, replace } from "svelte-spa-router";
 
     export let params = {};
 
@@ -27,6 +27,12 @@
         formattedTags = response.tags;
         tags = formattedTags ? formattedTags.split(",").join(" ") : "";
     });
+
+    const updatePost = async () => {
+        const data = { slug, title, body: postBody, tags: formattedTags };
+        await api.admin.updatePost(slug, data);
+        replace("/posts");
+    };
 </script>
 
 <style>
@@ -42,7 +48,7 @@
 <div class="page-main">
     <div class="actions-wrapper">
         <Button lg onClick={() => pop()}>Back</Button>
-        <Button lg onClick={() => console.log('Update')}>Update</Button>
+        <Button lg onClick={() => updatePost()}>Update</Button>
     </div>
     {#if !response}
         <h2>Loading...</h2>

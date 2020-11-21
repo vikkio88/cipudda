@@ -34,6 +34,17 @@ export default {
             const response = await res.json();
             return response.payload;
         },
+        async updatePost(slug, body) {
+            const res = await fetch(`${api}/admin/posts/${slug}`, {
+                method: 'put',
+                headers: {
+                    'x-api-key': key,
+                },
+                body: JSON.stringify(body),
+            });
+            const response = await res.json();
+            return response.payload;
+        },
         async deletePost(slug) {
             const res = await fetch(`${api}/admin/posts/${slug}`, {
                 method: 'delete',

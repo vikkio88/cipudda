@@ -38,7 +38,7 @@ $app->get('/posts/{slug}', GetPost::class);
 $app->group('/admin', function (RouteCollectorProxy $group) {
     $group->get('/posts', AdmGetPosts::class);
     $group->post('/posts', CreatePost::class);
-    $group->patch('/posts/{slug}', UpdatePost::class);
+    $group->put('/posts/{slug}', UpdatePost::class);
     $group->delete('/posts/{slug}', DeletePost::class);
 
 })->add(AuthGuard::class);
