@@ -29,14 +29,6 @@
       align-items: center;
     }
   }
-
-  .tags {
-    width: 100%;
-  }
-  .tag {
-    margin-left: 10px;
-    margin-right: 105px;
-  }
 </style>
 
 <section class="container single-post">

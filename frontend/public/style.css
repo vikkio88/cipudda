@@ -79,14 +79,34 @@ div.no-result {
 
 section.container {
 	margin-top: 40px;
-	width: 98%;
+	width: 90vw;
 	padding: 20px;
 	/* Media Query to make padding bigger for desktop */
 	padding-left: 30px;
 	padding-right: 30px;
 	border: solid 3px #1f364d;
 	border-radius: 4px;
+}
 
+section.tags {
+	border: solid 3px #1f364d;
+	border-radius: 4px;
+	width: 80%;
+	margin-top: 80px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+section.tags h2 {
+	font-size: 30px;
+	margin-bottom:0;
+}
+
+section.tags .tag {
+    margin: 10px;
 }
 
 p.post-body{
@@ -95,6 +115,10 @@ p.post-body{
 	border-top: solid 1px  #a2b8cd;
 	text-align: justify;
 	text-justify: inter-word;  
+}
+
+p.post-body p{
+	margin-top: 1.3em;
 }
 
 p.post-body h1,h2,h3 {
@@ -128,6 +152,15 @@ p.post-body blockquote {
 	padding: 15px;
 	border-left: solid 5px rgb(54, 53, 52);
 	text-align: left;
+}
+
+@media screen and (max-width: 650px) {
+	section.container {
+		width: 90vw;
+	}
+	p.post-body p{
+		margin-top: 10px;
+	}
 }
 
 a {
