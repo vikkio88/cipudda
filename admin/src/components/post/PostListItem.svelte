@@ -1,9 +1,9 @@
 <script>
     import api from "../../libs/api";
-    import { pop,push } from "svelte-spa-router";
+    import { push } from "svelte-spa-router";
 
-    import Button from "./Button.svelte";
-    import ConfirmButton from "./ConfirmButton.svelte";
+    import Button from "../common/Button.svelte";
+    import ConfirmButton from "../common/ConfirmButton.svelte";
 
     export let slug = "";
     export let title = "";
@@ -58,7 +58,7 @@
         <span>{publishedDate}</span>
     </div>
     <div class="actions">
-        <Button>Edit</Button>
+        <Button onClick={() => push(`/edit/${slug}`)}>Edit</Button>
         <ConfirmButton onClick={() => onDelete(slug)}>Delete</ConfirmButton>
     </div>
 </div>

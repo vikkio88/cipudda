@@ -4,11 +4,13 @@
 	import Main from "./components/pages/Main.svelte";
 	import Posts from "./components/pages/Posts.svelte";
 	import Create from "./components/pages/Create.svelte";
+	import Edit from "./components/pages/Edit.svelte";
 
 	const routes = {
 		"/": Main,
 		"/posts": Posts,
 		"/create": Create,
+		"/edit/:slug": Edit,
 	};
 
 	const api = process.env.API_URL;

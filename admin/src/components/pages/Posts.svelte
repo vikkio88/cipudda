@@ -4,7 +4,7 @@
     import api from '../../libs/api';
 
     import Button from "../common/Button.svelte";
-    import Post from "../common/PostListItem.svelte";
+    import Post from "../post/PostListItem.svelte";
 
     let posts = [];
 
