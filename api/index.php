@@ -25,6 +25,7 @@ $container = new DI\Container();
 $container->set(Config::class, $config);
 $app = Bridge::create($container);
 (new AppProvider($app))->boot();
+$app->setBasePath($_ENV['APP_SUBFOLDER']);
 
 // Setting up Cors
 $app->add(Cors::class);
