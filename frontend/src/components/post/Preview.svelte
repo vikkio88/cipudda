@@ -10,12 +10,12 @@
 
 <style>
   .index-item {
-    min-width: 80vw;
+    min-width: 70vw;
   }
 
   @media screen and (max-width: 500px) {
     .index-item {
-      width: 90vw;
+      width: 70vw;
     }
   }
   div.section-bottom {
