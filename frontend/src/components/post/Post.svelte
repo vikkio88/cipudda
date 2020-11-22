@@ -5,7 +5,7 @@
   export let body = "";
   export let publishedDate = "";
   export let tags = "";
-  $: formattedTags = tags ? tags.split(",").map(t => t.trim()) : [];
+  $: formattedTags = tags ? tags.split(",").map((t) => t.trim()) : [];
 </script>
 
 <style>
@@ -16,17 +16,6 @@
   @media screen and (max-width: 650px) {
     .single-post {
       min-width: 98vw;
-    }
-    .tags {
-      min-width: 98vw;
-      display: flex;
-    }
-    .tags p {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
     }
   }
 </style>
@@ -42,10 +31,8 @@
 {#if tags}
   <section class="tags">
     <h2 class="title">Tags</h2>
-    <p>
-      {#each formattedTags as tag}
-        <a href={`/posts/tag/${tag}`} use:link class="tag">#{tag}</a>
-      {/each}
-    </p>
+    {#each formattedTags as tag}
+      <a href={`/posts/tag/${tag}`} use:link class="tag">#{tag}</a>
+    {/each}
   </section>
 {/if}

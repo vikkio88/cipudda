@@ -89,15 +89,21 @@ section.container {
 }
 
 section.tags {
-	border: solid 3px #1f364d;
-	border-radius: 4px;
-	width: 80%;
+	border-top: solid 3px #1f364d;
+	width: 90%;
 	margin-top: 80px;
 	padding: 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+.tags p {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	max-width: 50%;
 }
 
 section.tags h2 {
@@ -145,6 +151,7 @@ p.post-body pre {
 	padding: 20px;
 	line-height: normal;
 	text-align: left;
+	overflow: auto;
 }
 
 p.post-body blockquote {
@@ -155,11 +162,23 @@ p.post-body blockquote {
 }
 
 @media screen and (max-width: 650px) {
+	p.home-title {
+		font-size: 23px;
+	}
 	section.container {
-		width: 90vw;
+		width: 80vw;
 	}
 	p.post-body p{
 		margin-top: 10px;
+	}
+
+	section.tags a,
+	p.post-body code {
+		font-size: 16px;
+	}
+
+	section.tags .tag {
+		margin-top: 3px;
 	}
 }
 
