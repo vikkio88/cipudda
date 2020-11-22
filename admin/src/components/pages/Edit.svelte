@@ -25,7 +25,12 @@
         title = response.title;
         postBody = response.body;
         formattedTags = response.tags;
-        tags = formattedTags ? formattedTags.split(",").join(" ") : "";
+        tags = formattedTags
+            ? formattedTags
+                  .split(",")
+                  .map((t) => t.trim())
+                  .join(" ")
+            : "";
     });
 
     const updatePost = async () => {
