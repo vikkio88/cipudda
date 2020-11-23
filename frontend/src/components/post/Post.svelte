@@ -9,15 +9,6 @@
 </script>
 
 <style>
-  .single-post {
-    width: 85vw;
-  }
-
-  @media screen and (max-width: 650px) {
-    .single-post {
-      min-width: 98vw;
-    }
-  }
 </style>
 
 <section class="container single-post">

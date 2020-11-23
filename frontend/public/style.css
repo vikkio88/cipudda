@@ -51,7 +51,6 @@ strong {
 }
 
 main {
-	min-width: 100%;
 	min-height: 65vh;
 	display: flex;
     flex-direction: column;
