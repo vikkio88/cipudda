@@ -4,10 +4,23 @@ import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import replace from 'rollup-plugin-replace';
 import { terser } from 'rollup-plugin-terser';
+import del from 'rollup-plugin-delete';
+import copy from 'rollup-plugin-copy';
 import dotenv from 'dotenv';
+
+
+const randomHash = () => Math.random().toString(36).substr(2, 5);
 
 const production = !process.env.ROLLUP_WATCH;
 dotenv.config();
+
+const output = !production ? {
+	file: 'public/build/bundle.js'
+} : {
+		dir: 'dist',
+		entryFileNames: 'bundle.[hash].js',
+		assetFileNames: '[name].[hash].[ext]'
+	};
 
 export default {
 	input: 'src/main.js',
@@ -15,16 +28,18 @@ export default {
 		sourcemap: !production,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		...output
 	},
 	plugins: [
+		del({ targets: ['dist/*', 'public/build/*'] }),
+
 		svelte({
 			// enable run-time checks when not in production
 			dev: !production,
 			// we'll extract any component CSS out into
 			// a separate file — better for performance
 			css: css => {
-				css.write('public/build/bundle.css');
+				css.write(production ? `bundle.${randomHash()}.css` : 'bundle.css', !production);
 			}
 		}),
 
@@ -57,7 +72,13 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+		production && copy({
+			targets: [
+				{ src: 'public/index.html', dest: 'dist/' },
+				{ src: 'public/style.css', dest: 'dist/', rename: `style.${randomHash()}.css` },
+			]
+		})
 	],
 	watch: {
 		clearScreen: false

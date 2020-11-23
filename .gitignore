@@ -2,3 +2,4 @@
 .vscode/
 __MACOSX/
 .DS_Store
+dist/
