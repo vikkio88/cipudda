@@ -22,6 +22,19 @@ h3.subtitle {
 	margin-bottom: 15px;
 }
 
+.index-item h2.title {
+	font-size: 32px;
+	cursor: pointer;
+}
+
+.index-item h2.title:hover {
+	color: #e052a0;
+}
+
+.index-item .post-body {
+	font-size: 16px;
+}
+
 .header {
 	display: flex;
 	flex-direction: column;

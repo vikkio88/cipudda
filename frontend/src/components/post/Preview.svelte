@@ -1,9 +1,10 @@
 <script>
-  import { link } from "svelte-spa-router";
+  import { push, link } from "svelte-spa-router";
   import { marked } from "cipudda-libs";
   export let slug = "";
   export let title = "";
   export let body = "";
+  export const tags = '';
   export let publishedDate = "";
   export let hideBody = false;
 </script>
@@ -26,7 +27,7 @@
 </style>
 
 <section class="container index-item">
-  <h2 class="title">{title}</h2>
+  <h2 on:click={() => push(`/post/${slug}`)} class="title">{title}</h2>
   <h3 class="subtitle">{publishedDate}</h3>
   {#if !hideBody}
     <p class="post-body">

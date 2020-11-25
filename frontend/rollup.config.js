@@ -34,7 +34,7 @@ export default {
 		...output
 	},
 	plugins: [
-		del({ targets: ['dist/*', 'public/build/*'] }),
+		production && del({ targets: ['dist/*'] }),
 
 		svelte({
 			dev: !production,
