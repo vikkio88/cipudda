@@ -6,6 +6,7 @@ import replace from 'rollup-plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 import del from 'rollup-plugin-delete';
 import copy from 'rollup-plugin-copy';
+import html from 'rollup-plugin-bundle-html';
 import dotenv from 'dotenv';
 
 
@@ -13,6 +14,8 @@ const randomHash = () => Math.random().toString(36).substr(2, 5);
 
 const production = !process.env.ROLLUP_WATCH;
 dotenv.config();
+
+const hash = randomHash();
 
 const output = !production ? {
 	file: 'public/build/bundle.js'
@@ -34,12 +37,9 @@ export default {
 		del({ targets: ['dist/*', 'public/build/*'] }),
 
 		svelte({
-			// enable run-time checks when not in production
 			dev: !production,
-			// we'll extract any component CSS out into
-			// a separate file — better for performance
 			css: css => {
-				css.write(production ? `bundle.${randomHash()}.css` : 'bundle.css', !production);
+				css.write(production ? `bundle.${hash}.css` : 'bundle.css', !production);
 			}
 		}),
 
@@ -51,33 +51,31 @@ export default {
 			})
 		}),
 
-		// If you have external dependencies installed from
-		// npm, you'll most likely need these plugins. In
-		// some cases you'll need additional configuration —
-		// consult the documentation for details:
-		// https://github.com/rollup/plugins/tree/master/packages/commonjs
 		resolve({
 			browser: true,
 			dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
 		}),
 		commonjs(),
-
-		// In dev mode, call `npm run start` once
-		// the bundle has been generated
 		!production && serve(),
-
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
 		!production && livereload('public'),
 
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
 		production && terser(),
 		production && copy({
 			targets: [
-				{ src: 'public/index.html', dest: 'dist/' },
-				{ src: 'public/style.css', dest: 'dist/', rename: `style.${randomHash()}.css` },
+				{ src: 'public/style.css', dest: 'dist/', rename: `style.${hash}.css` },
 			]
+		}),
+		production && html({
+			template: 'public/index_prod.html',
+			dest: "dist",
+			filename: 'index.html',
+			inject: 'head',
+			/*
+			externals: [
+				{ type: 'css', file: `style.${hash}.css`, pos: 'before' },
+				{ type: 'css', file: `bundle.${hash}.css`, pos: 'before' }
+			]
+			*/
 		})
 	],
 	watch: {
