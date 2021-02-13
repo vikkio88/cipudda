@@ -69,13 +69,7 @@ export default {
 			template: 'public/index_prod.html',
 			dest: "dist",
 			filename: 'index.html',
-			inject: 'head',
-			/*
-			externals: [
-				{ type: 'css', file: `style.${hash}.css`, pos: 'before' },
-				{ type: 'css', file: `bundle.${hash}.css`, pos: 'before' }
-			]
-			*/
+			inject: 'head'
 		})
 	],
 	watch: {
