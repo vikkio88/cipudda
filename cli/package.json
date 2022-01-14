@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "chalk": "^3.0.0",
     "enquirer": "^2.3.4",
     "minimist": "^1.2.5"
